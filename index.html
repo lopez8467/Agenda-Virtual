@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PANEL INTELIGENTE</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="panel">
+
+<h1>🌟 PANEL INTELIGENTE</h1>
+<div id="reloj"></div>
+
+<button class="temaBtn" onclick="cambiarTema()">Cambiar Tema 🎨</button>
+
+<div class="grid">
+
+<!-- TAREAS -->
+<div class="card">
+<h2>✅ Tareas (<span id="contador">0</span>)</h2>
+<input id="tareaInput" placeholder="Nueva tarea">
+<button onclick="addTask()">Agregar</button>
+<ul id="listaTareas"></ul>
+</div>
+
+<!-- NOTAS -->
+<div class="card">
+<h2>📝 Notas</h2>
+<textarea id="nota"></textarea>
+<button onclick="guardarNota()">Guardar</button>
+<ul id="listaNotas"></ul>
+</div>
+
+<!-- CALCULADORA -->
+<div class="card">
+<h2>🧮 Calculadora</h2>
+<input id="calc" readonly>
+<div class="calcBtns"></div>
+</div>
+
+<!-- TEMPORIZADOR -->
+<div class="card">
+<h2>⏱ Temporizador</h2>
+<div id="timer">00:00</div>
+<button onclick="iniciar()">Iniciar</button>
+<button onclick="detener()">Detener</button>
+<button onclick="reset()">Reset</button>
+</div>
+
+<!-- FRASE -->
+<div class="card">
+<h2>💡 Motivación</h2>
+<p id="frase"></p>
+<button onclick="nuevaFrase()">Nueva frase</button>
+</div>
+
+<!-- CLIMA -->
+<div class="card">
+<h2>🌦 Clima</h2>
+<div id="clima"></div>
+<button onclick="generarClima()">Actualizar</button>
+</div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
