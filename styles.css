@@ -1,97 +1,142 @@
-body{
-margin:0;
-font-family:Segoe UI;
-color:white;
-overflow-x:hidden;
-transition:.5s;
+:root {
+    --primary-color: #ff00cc; /* Variable para cambiar el tema fácilmente */
 }
 
-.bg{
-position:fixed;
-width:200%;
-height:200%;
-background:linear-gradient(-45deg,#ff00cc,#3333ff,#00ffcc,#ff6600);
-background-size:400% 400%;
-animation:bgmove 15s infinite linear;
-z-index:-1;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow-x: hidden;
 }
 
-@keyframes bgmove{
-0%{transform:translate(-25%,-25%)}
-50%{transform:translate(-35%,-35%)}
-100%{transform:translate(-25%,-25%)}
+.bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 200%;
+    height: 200%;
+    /* Usamos la variable --primary-color aquí */
+    background: linear-gradient(-45deg, var(--primary-color), #3333ff, #00ffcc, #ff6600);
+    background-size: 400% 400%;
+    animation: bgmove 15s infinite linear;
+    z-index: -1;
+    transition: --primary-color 1s ease; /* Suaviza el cambio de color */
 }
 
-.panel{
-text-align:center;
-padding:25px;
+@keyframes bgmove {
+    0% { transform: translate(-25%, -25%); }
+    50% { transform: translate(-35%, -35%); }
+    100% { transform: translate(-25%, -25%); }
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,320px);
-justify-content:center;
-gap:25px;
-margin-top:25px;
+.panel {
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(15px);
-padding:20px;
-border-radius:20px;
-box-shadow:0 0 25px rgba(0,0,0,0.4);
+h1 { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+
+#reloj {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-button{
-margin-top:10px;
-padding:10px;
-border:none;
-border-radius:12px;
-background:#00ffd5;
-cursor:pointer;
-font-weight:bold;
+/* Grilla Responsiva: Se adapta al ancho de la pantalla */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
 }
 
-.temaBtn{
-margin-top:15px;
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease;
 }
 
-input,textarea{
-width:100%;
-padding:10px;
-margin-top:8px;
-border:none;
-border-radius:10px;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-ul{list-style:none;padding:0}
-
-li{
-background:rgba(255,255,255,0.25);
-margin-top:8px;
-padding:8px;
-border-radius:10px;
-display:flex;
-justify-content:space-between;
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    background: #00ffd5;
+    color: #004d40;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
 }
 
-.calcBtns{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:5px;
-margin-top:10px;
+button:hover {
+    background: #fff;
+    transform: scale(1.05);
 }
 
-.calcBtns button{
-padding:15px;
-background:white;
-color:black;
-font-weight:bold;
+.temaBtn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid white;
 }
 
-#timer{
-font-size:30px;
-margin:10px;
+input, textarea {
+    width: calc(100% - 22px); /* Ajuste para el padding */
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.9);
+    font-family: inherit;
 }
 
+/* Listas */
+ul { list-style: none; padding: 0; max-height: 200px; overflow-y: auto; }
+li {
+    background: rgba(0,0,0,0.2);
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+/* Calculadora */
+.calcBtns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+.calcBtns button {
+    padding: 15px;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0;
+}
+.calcBtns button:active { background: #ccc; }
+
+/* Timer */
+#timer { font-size: 3rem; font-family: monospace; margin: 10px 0; }
+.timer-controls { display: flex; gap: 10px; justify-content: center; }
+.btn-start { background: #4ade80; color: #064e3b; }
+.btn-stop { background: #f87171; color: #450a0a; }
+.btn-reset { background: #60a5fa; color: #1e3a8a; }
+
+/* Input group para tareas */
+.input-group { display: flex; gap: 5px; }
+.input-group input { width: 100%; }
+.input-group button { margin-top: 8px; }

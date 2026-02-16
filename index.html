@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>PANEL INTELIGENTE</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANEL INTELIGENTE 2.0</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -11,60 +12,58 @@
 
 <div class="panel">
 
-<h1>🌟 PANEL INTELIGENTE</h1>
-<div id="reloj"></div>
+    <h1>🌟 PANEL INTELIGENTE</h1>
+    <div id="reloj">00:00:00</div>
 
-<button class="temaBtn" onclick="cambiarTema()">Cambiar Tema 🎨</button>
+    <button class="temaBtn" onclick="cambiarTema()">Cambiar Tema 🎨</button>
 
-<div class="grid">
+    <div class="grid">
 
-<!-- TAREAS -->
-<div class="card">
-<h2>✅ Tareas (<span id="contador">0</span>)</h2>
-<input id="tareaInput" placeholder="Nueva tarea">
-<button onclick="addTask()">Agregar</button>
-<ul id="listaTareas"></ul>
-</div>
+        <div class="card">
+            <h2>✅ Tareas (<span id="contador">0</span>)</h2>
+            <div class="input-group">
+                <input id="tareaInput" placeholder="Nueva tarea..." onkeypress="handleEnter(event, addTask)">
+                <button onclick="addTask()">➕</button>
+            </div>
+            <ul id="listaTareas"></ul>
+        </div>
 
-<!-- NOTAS -->
-<div class="card">
-<h2>📝 Notas</h2>
-<textarea id="nota"></textarea>
-<button onclick="guardarNota()">Guardar</button>
-<ul id="listaNotas"></ul>
-</div>
+        <div class="card">
+            <h2>📝 Notas Rápidas</h2>
+            <textarea id="nota" placeholder="Escribe algo importante..."></textarea>
+            <button onclick="guardarNota()">Guardar Nota 💾</button>
+            <ul id="listaNotas"></ul>
+        </div>
 
-<!-- CALCULADORA -->
-<div class="card">
-<h2>🧮 Calculadora</h2>
-<input id="calc" readonly>
-<div class="calcBtns"></div>
-</div>
+        <div class="card">
+            <h2>🧮 Calculadora</h2>
+            <input id="calc" readonly placeholder="0">
+            <div class="calcBtns"></div>
+        </div>
 
-<!-- TEMPORIZADOR -->
-<div class="card">
-<h2>⏱ Temporizador</h2>
-<div id="timer">00:00</div>
-<button onclick="iniciar()">Iniciar</button>
-<button onclick="detener()">Detener</button>
-<button onclick="reset()">Reset</button>
-</div>
+        <div class="card">
+            <h2>⏱ Temporizador</h2>
+            <div id="timer">00:00</div>
+            <div class="timer-controls">
+                <button onclick="iniciar()" class="btn-start">▶</button>
+                <button onclick="detener()" class="btn-stop">⏸</button>
+                <button onclick="reset()" class="btn-reset">⏹</button>
+            </div>
+        </div>
 
-<!-- FRASE -->
-<div class="card">
-<h2>💡 Motivación</h2>
-<p id="frase"></p>
-<button onclick="nuevaFrase()">Nueva frase</button>
-</div>
+        <div class="card">
+            <h2>💡 Motivación</h2>
+            <p id="frase" class="frase-txt">Cargando...</p>
+            <button onclick="nuevaFrase()">🔄 Otra frase</button>
+        </div>
 
-<!-- CLIMA -->
-<div class="card">
-<h2>🌦 Clima</h2>
-<div id="clima"></div>
-<button onclick="generarClima()">Actualizar</button>
-</div>
+        <div class="card">
+            <h2>🌦 Clima Simulado</h2>
+            <div id="clima" class="clima-txt">--</div>
+            <button onclick="generarClima()">🔄 Actualizar</button>
+        </div>
 
-</div>
+    </div>
 </div>
 
 <script src="script.js"></script>
