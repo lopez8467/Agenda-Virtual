@@ -1,142 +1,142 @@
-:root {
-    --primary-color: #ff00cc; /* Variable para cambiar el tema fácilmente */
+body{
+margin:0;
+font-family: 'Poppins', sans-serif;
+color:#e6e6e6;
+overflow-x:hidden;
+background:#0f172a;
+transition: background 0.6s ease, color 0.6s ease;
 }
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    overflow-x: hidden;
+/* Fondo animado con patrón radial */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 30%, #1f2937, transparent 40%),
+radial-gradient(circle at 80% 70%, #0ea5e9, transparent 35%),
+radial-gradient(circle at 50% 50%, #9333ea, transparent 30%);
+animation: pulseBg 12s infinite alternate;
+z-index:-1;
 }
 
-.bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 200%;
-    height: 200%;
-    /* Usamos la variable --primary-color aquí */
-    background: linear-gradient(-45deg, var(--primary-color), #3333ff, #00ffcc, #ff6600);
-    background-size: 400% 400%;
-    animation: bgmove 15s infinite linear;
-    z-index: -1;
-    transition: --primary-color 1s ease; /* Suaviza el cambio de color */
+@keyframes pulseBg{
+0%{filter:brightness(0.8) blur(0px);}
+50%{filter:brightness(1.1) blur(2px);}
+100%{filter:brightness(0.9) blur(0px);}
 }
 
-@keyframes bgmove {
-    0% { transform: translate(-25%, -25%); }
-    50% { transform: translate(-35%, -35%); }
-    100% { transform: translate(-25%, -25%); }
+.panel{
+text-align:center;
+padding:40px 20px;
+letter-spacing:1px;
 }
 
-.panel {
-    text-align: center;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Grid más flexible */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin:40px auto;
+width:90%;
+max-width:1100px;
 }
 
-h1 { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-
-#reloj {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+/* Tarjetas estilo glass oscuro */
+.card{
+background:rgba(15,23,42,0.6);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(8px);
+padding:25px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Grilla Responsiva: Se adapta al ancho de la pantalla */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 25px;
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,0.9);
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    transition: transform 0.3s ease;
+button{
+margin-top:12px;
+padding:12px;
+border:none;
+border-radius:10px;
+background:linear-gradient(135deg,#22d3ee,#6366f1);
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:transform .2s, filter .2s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+button:hover{
+transform:scale(1.05);
+filter:brightness(1.2);
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 12px;
-    background: #00ffd5;
-    color: #004d40;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.2s;
+.temaBtn{
+margin-top:20px;
 }
 
-button:hover {
-    background: #fff;
-    transform: scale(1.05);
+/* Inputs más minimalistas */
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:1px solid #334155;
+border-radius:8px;
+background:#020617;
+color:white;
+outline:none;
 }
 
-.temaBtn {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: 1px solid white;
+input:focus, textarea:focus{
+border-color:#38bdf8;
+box-shadow:0 0 8px #38bdf8;
 }
 
-input, textarea {
-    width: calc(100% - 22px); /* Ajuste para el padding */
-    padding: 10px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.9);
-    font-family: inherit;
+ul{
+list-style:none;
+padding:0;
 }
 
-/* Listas */
-ul { list-style: none; padding: 0; max-height: 200px; overflow-y: auto; }
-li {
-    background: rgba(0,0,0,0.2);
-    margin-top: 8px;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
+li{
+background:#1e293b;
+margin-top:10px;
+padding:10px;
+border-radius:8px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+transition:background .3s;
+}
+
+li:hover{
+background:#334155;
 }
 
 /* Calculadora */
-.calcBtns {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    margin-top: 10px;
+.calcBtns{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:15px;
 }
-.calcBtns button {
-    padding: 15px;
-    background: rgba(255,255,255,0.9);
-    color: #333;
-    font-size: 1.2rem;
-    margin: 0;
+
+.calcBtns button{
+padding:18px;
+background:#e5e7eb;
+color:#020617;
+font-weight:bold;
+border-radius:6px;
 }
-.calcBtns button:active { background: #ccc; }
 
-/* Timer */
-#timer { font-size: 3rem; font-family: monospace; margin: 10px 0; }
-.timer-controls { display: flex; gap: 10px; justify-content: center; }
-.btn-start { background: #4ade80; color: #064e3b; }
-.btn-stop { background: #f87171; color: #450a0a; }
-.btn-reset { background: #60a5fa; color: #1e3a8a; }
+#timer{
+font-size:34px;
+margin:15px;
+font-weight:bold;
+letter-spacing:2px;
+}
 
-/* Input group para tareas */
-.input-group { display: flex; gap: 5px; }
-.input-group input { width: 100%; }
-.input-group button { margin-top: 8px; }
+
